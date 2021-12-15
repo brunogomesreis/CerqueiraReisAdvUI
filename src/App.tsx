@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SummaryCards from './summary_card/summary_card';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         >
           Learn React
         </a>
+        <SummaryCards title='Hello Cerqueira Reis Adv'/>
       </header>
     </div>
   );
