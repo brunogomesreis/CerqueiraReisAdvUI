@@ -1,0 +1,6 @@
+Dependências instaladas
+
+npm install @material-ui/core @material-ui/icons @types/material-ui
+npm install @mui/material
+npm install react-router-dom
+npm install @mui/icons-material

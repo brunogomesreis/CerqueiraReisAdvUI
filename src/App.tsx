@@ -1,28 +1,26 @@
-import React from 'react';
+import { createTheme, Theme } from '@material-ui/core/styles';
 import logo from './logo.svg';
 import './App.css';
-import SummaryCards from './summary_card/summary_card';
+import SummaryCards from './components/SummaryCard/SummaryCard';
+import Layout from './components/layout';
+
+export const lightTheme: Theme = createTheme({
+  palette: {
+      type: "light",
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <SummaryCards title='Hello Cerqueira Reis Adv'/>
-      </header>
-    </div>
+    <Layout useDefaultTheme={true} />
   );
 }
+
+/* <div className="App">
+<header className="App-header">
+  <img src={logo} className="App-logo" alt="logo" />
+  <SummaryCards title='Hello Cerqueira Reis Adv'/>
+</header>
+</div> */
 
 export default App;

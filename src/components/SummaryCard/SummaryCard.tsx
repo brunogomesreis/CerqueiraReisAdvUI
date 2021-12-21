@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 
-interface TitleProps {
+interface SummaryCardProps {
   title: string;
   subtitle?: string;
 }
 
-const SummaryCards: FC<TitleProps> = ({ title, subtitle }) => {
+const SummaryCards: FC<SummaryCardProps> = ({ title, subtitle }) => {
   return (
     <>
       <h1>{title}</h1>
