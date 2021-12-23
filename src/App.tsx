@@ -1,6 +1,8 @@
 import { createTheme, Theme } from '@material-ui/core/styles';
+// import { routes } from "./config";
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
-import Layout from './components/layout';
+import Layout from './pages/cashflow';
 
 export const lightTheme: Theme = createTheme({
   palette: {
