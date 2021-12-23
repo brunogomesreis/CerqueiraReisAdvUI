@@ -1,5 +1,4 @@
-import React, { FC, ReactNode, useReducer } from "react";
-import clsx from "clsx";
+import React, { FC, useReducer } from "react";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import { CssBaseline } from "@material-ui/core";
 
@@ -57,7 +56,7 @@ const Layout: FC<Props> = ({ useDefaultTheme }) => {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Header/>
+      <Header text="Fluxo de Caixa"/>
       {/* <Navigation open={open} handleClose={toggle} />
       <main
         className={clsx(classes.content, {

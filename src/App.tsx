@@ -1,7 +1,5 @@
 import { createTheme, Theme } from '@material-ui/core/styles';
-import logo from './logo.svg';
 import './App.css';
-import SummaryCards from './components/SummaryCard/SummaryCard';
 import Layout from './components/layout';
 
 export const lightTheme: Theme = createTheme({

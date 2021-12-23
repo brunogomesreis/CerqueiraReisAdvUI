@@ -79,7 +79,12 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function PersistentDrawerLeft() {
+interface headerProps {
+  text: string;
+}
+
+
+export default function PersistentDrawerLeft({text}: headerProps) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -96,6 +101,7 @@ export default function PersistentDrawerLeft() {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
+        color='secondary'
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
@@ -112,7 +118,7 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Persistent drawer
+            {text}
           </Typography>
         </Toolbar>
       </AppBar>
