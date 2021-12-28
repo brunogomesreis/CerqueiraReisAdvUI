@@ -1,9 +1,10 @@
-import React, { FC, useReducer } from "react";
+import React, { FC, ReactNode, useReducer } from "react";
+import clsx from "clsx";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import { CssBaseline } from "@material-ui/core";
 
 // components
-import Header from "./Header/header";
+import Header from "../components/Header/header";
 // import {Navigation} from "./Navigation";
 // import {Footer} from "./Footer";
 
@@ -42,33 +43,32 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 // define interface to represent component props
-interface Props {
-  // toggleTheme: () => void;
+interface LayoutProps {
+  toggleTheme: () => void;
   useDefaultTheme: boolean;
-  // children: ReactNode;
 }
 
 // functional component
-// const Layout: FC<Props> = ({ toggleTheme, useDefaultTheme, children }) => {
-const Layout: FC<Props> = ({ useDefaultTheme }) => {
+const Layout: FC<LayoutProps> = ({ toggleTheme, useDefaultTheme, children }) => {
+// const Layout: FC<LayoutProps> = ({ useDefaultTheme }) => {
   const classes = useStyles();
   const [open, toggle] = useReducer((open) => !open, true);
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Header text="Fluxo de Caixa"/>
-      {/* <Navigation open={open} handleClose={toggle} />
+      <Header text="Fluxo de Caixa" />
+      {/* <Navigation open={open} handleClose={toggle} /> */}
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}
       >
-        <div className={classes.toolbar} />
+        <div className={classes.toolbar}> </div>
         {children}
       </main>
       <footer>
-        <Footer />
-      </footer> */}
+        <p>footer</p>
+      </footer>
     </div>
   );
 };

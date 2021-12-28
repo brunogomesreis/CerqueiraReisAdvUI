@@ -1,8 +1,19 @@
 import { createTheme, Theme } from '@material-ui/core/styles';
-// import { routes } from "./config";
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {Helmet} from "react-helmet";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import Layout from './pages/cashflow';
+import { routes } from "./config";
+import { APP_TITLE } from "./utils/constants";
+
+import RouteItem from "./model/RouteItem.model";
+import { FC, ReactElement } from 'react';
+
+//rotes
+import Layout from './pages/Layout';
+import CashFlow from './pages/CashFlow';
+import { Router } from '@material-ui/icons';
+
+
 
 export const lightTheme: Theme = createTheme({
   palette: {
@@ -10,17 +21,51 @@ export const lightTheme: Theme = createTheme({
   },
 });
 
+
+// default component
+const DefaultComponent: FC<{}> = (): ReactElement => (
+  <div>{`No Component Defined.`}</div>
+);
+
+
 function App() {
   return (
-    <Layout useDefaultTheme={true} />
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            index
+            element={
+              <Layout
+                toggleTheme={function (): void {
+                  throw new Error("Function not implemented.");
+                }}
+                useDefaultTheme={false}
+              >
+                <h1>Index</h1>
+              </Layout>
+            }
+          />
+          <Route
+            path="/teste"
+            element={
+              <Layout
+                toggleTheme={function (): void {
+                  throw new Error("Function not implemented.");
+                }}
+                useDefaultTheme={false}
+              >
+                <h1>teste teste</h1>
+              </Layout>
+            }
+          />
+          <Route path="/teste2" element={<h1>teste teste</h1>} />
+          <Route path="*" element={<h1>Not Found 404</h1>} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
-/* <div className="App">
-<header className="App-header">
-  <img src={logo} className="App-logo" alt="logo" />
-  <SummaryCards title='Hello Cerqueira Reis Adv'/>
-</header>
-</div> */
 
 export default App;
