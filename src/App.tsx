@@ -13,6 +13,7 @@ import { lightTheme, darkTheme } from "./theme/AppTheme";
 
 //rotes
 import Layout from './pages/Layout';
+import MonthSelectotToolbar from './components/MonthSelectorToolbar/MonthSelectorToolbar';
 
 
 
@@ -48,7 +49,7 @@ function App() {
                 />
               }
             >
-              <Route path="/teste" element={<p>teste</p>} />
+              <Route path="/teste" element={<MonthSelectotToolbar title={'sdas'} />} />
               <Route path="teste2" element={<h1>teste teste2</h1>} />
             </Route>
             <Route path="*" element={DefaultComponent} />

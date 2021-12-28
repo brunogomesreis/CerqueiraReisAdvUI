@@ -1,4 +1,4 @@
-import React, { Children, FC } from 'react';
+import React, { FC } from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -19,7 +19,6 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import { Switch } from '@material-ui/core';
 import {DRAWER_WIDTH} from '../../utils/constants'
-import ButtonSwitch from '../ButtonSwitch/ButtonSwitch';
 
 const drawerWidth = DRAWER_WIDTH;
 
@@ -123,7 +122,7 @@ interface headerProps {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            {text}
+            {<b>{text}</b>}
           </Typography>
           <Switch onClick={toggleTheme} color="secondary"/>
         </Toolbar>

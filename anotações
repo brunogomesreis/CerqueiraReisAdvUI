@@ -3,3 +3,5 @@ Dependências instaladas
 npm install @material-ui/core @material-ui/icons @types/material-ui
 npm install react-router-dom
 npm install react-helmet
+npm install @mui/material @mui/styled-engine-sc styled-components
+npm install @emotion/react @emotion/styled
