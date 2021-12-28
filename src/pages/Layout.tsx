@@ -10,6 +10,7 @@ import Header from "../components/Header/header";
 
 // constants
 import { DRAWER_WIDTH, FOOTER_HEIGHT } from "../utils/constants";
+import { Outlet } from "react-router-dom";
 
 // define css-in-js
 const useStyles = makeStyles((theme: Theme) =>
@@ -24,9 +25,9 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(3),
       minHeight: `calc(100vh - ${FOOTER_HEIGHT}px)`,
       background: theme.palette.background.paper,
-      marginLeft: theme.spacing(7) + 1,
+      marginLeft: theme.spacing(1),
       [theme.breakpoints.up("sm")]: {
-        marginLeft: theme.spacing(9) + 1,
+        marginLeft: theme.spacing(1),
       },
     },
     toolbar: {
@@ -49,23 +50,21 @@ interface LayoutProps {
 }
 
 // functional component
-const Layout: FC<LayoutProps> = ({ toggleTheme, useDefaultTheme, children }) => {
+const Layout: FC<LayoutProps> = ({ toggleTheme, useDefaultTheme }) => {
 // const Layout: FC<LayoutProps> = ({ useDefaultTheme }) => {
   const classes = useStyles();
   const [open, toggle] = useReducer((open) => !open, true);
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Header text="Fluxo de Caixa" />
+      <Header text="Fluxo de Caixa">
+        <main className={clsx(classes.content)}>
+          <div className={classes.toolbar}> </div>
+          <Outlet />
+        </main>
+      </Header>
       {/* <Navigation open={open} handleClose={toggle} /> */}
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open,
-        })}
-      >
-        <div className={classes.toolbar}> </div>
-        {children}
-      </main>
+
       <footer>
         <p>footer</p>
       </footer>

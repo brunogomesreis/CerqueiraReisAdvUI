@@ -1,6 +1,6 @@
 import { createTheme, Theme } from '@material-ui/core/styles';
 import {Helmet} from "react-helmet";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import './App.css';
 import { routes } from "./config";
 import { APP_TITLE } from "./utils/constants";
@@ -24,7 +24,7 @@ export const lightTheme: Theme = createTheme({
 
 // default component
 const DefaultComponent: FC<{}> = (): ReactElement => (
-  <div>{`No Component Defined.`}</div>
+  <h1>Not Found 404</h1>
 );
 
 
@@ -34,33 +34,20 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            index
+            path="/"
             element={
               <Layout
                 toggleTheme={function (): void {
                   throw new Error("Function not implemented.");
                 }}
                 useDefaultTheme={false}
-              >
-                <h1>Index</h1>
-              </Layout>
+              />
             }
-          />
-          <Route
-            path="/teste"
-            element={
-              <Layout
-                toggleTheme={function (): void {
-                  throw new Error("Function not implemented.");
-                }}
-                useDefaultTheme={false}
-              >
-                <h1>teste teste</h1>
-              </Layout>
-            }
-          />
-          <Route path="/teste2" element={<h1>teste teste</h1>} />
-          <Route path="*" element={<h1>Not Found 404</h1>} />
+          >
+            <Route path="/teste" element={<p>teste</p>} />
+            <Route path="teste2" element={<h1>teste teste2</h1>} />
+          </Route>
+          <Route path="*" element={DefaultComponent} />
         </Routes>
       </BrowserRouter>
     </>
