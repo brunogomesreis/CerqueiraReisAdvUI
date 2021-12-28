@@ -17,8 +17,12 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import { Switch } from '@material-ui/core';
+import {DRAWER_WIDTH} from '../../utils/constants'
+import ButtonSwitch from '../ButtonSwitch/ButtonSwitch';
 
-const drawerWidth = 240;
+const drawerWidth = DRAWER_WIDTH;
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -80,12 +84,13 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface headerProps {
+  toggleTheme: () => void;
   text: string;
 }
 
 
 //export default function PersistentDrawerLeft({text}: headerProps) {
-  const Header: FC<headerProps> = ({ text, children }) => {
+  const Header: FC<headerProps> = ({ text, toggleTheme, children }) => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -102,7 +107,6 @@ interface headerProps {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
-        color="secondary"
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
@@ -121,6 +125,7 @@ interface headerProps {
           <Typography variant="h6" noWrap>
             {text}
           </Typography>
+          <Switch onClick={toggleTheme} color="secondary"/>
         </Toolbar>
       </AppBar>
       <Drawer

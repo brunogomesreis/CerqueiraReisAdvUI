@@ -53,11 +53,10 @@ interface LayoutProps {
 const Layout: FC<LayoutProps> = ({ toggleTheme, useDefaultTheme }) => {
 // const Layout: FC<LayoutProps> = ({ useDefaultTheme }) => {
   const classes = useStyles();
-  const [open, toggle] = useReducer((open) => !open, true);
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Header text="Fluxo de Caixa">
+      <Header text="Fluxo de Caixa" toggleTheme={toggleTheme}>
         <main className={clsx(classes.content)}>
           <div className={classes.toolbar}> </div>
           <Outlet />
