@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import { Paper } from '@mui/material';
+import Paper from '@material-ui/core/Paper/Paper';
 import Stack from '@mui/material/Stack/Stack';
 import { Button } from '@material-ui/core';
 
