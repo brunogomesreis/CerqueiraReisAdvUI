@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     menuButton: {
       marginRight: theme.spacing(2),
+      color: theme.palette.primary.main
     },
     hide: {
       display: 'none',
@@ -79,6 +80,9 @@ const useStyles = makeStyles((theme: Theme) =>
       }),
       marginLeft: 0,
     },
+    textcolors: {
+      color: theme.palette.primary.main
+    }
   }),
 );
 
@@ -122,7 +126,7 @@ interface headerProps {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            {<b>{text}</b>}
+            {<b className={classes.textcolors}>{text}</b>}
           </Typography>
           <Switch onClick={toggleTheme} color="secondary"/>
         </Toolbar>
