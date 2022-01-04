@@ -12,6 +12,13 @@ export const lightTheme: Theme = createTheme({
         secondary: {
             main: "#9bb2ba"
         },
+        error:{
+            main: "#CB1717"
+        },
+        success:{
+            main: "#52B224"
+        }
+        
     },
     
 });

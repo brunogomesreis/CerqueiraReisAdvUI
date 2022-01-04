@@ -11,20 +11,20 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: "center",
       alignItems: "center",
       paddingInline: "10px",
-      borderLeftColor: "#CB1717",
+      borderLeftColor: theme.palette.error.main,
     },
     summarycardflagpositive: {
       borderLeft: "10px solid",
       justifyContent: "center",
       alignItems: "center",
       paddingInline: "10px",
-      borderLeftColor: "#52B224",
+      borderLeftColor: theme.palette.success.main,
     },
     summarycardvaluepositive: {
-      color: "#52B224"
+      color: theme.palette.success.main
     },
     summarycardvaluenegative: {
-      color: "#CB1717"
+      color: theme.palette.error.main
     },
     summarycardtext: {
       color: theme.palette.primary.main
