@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import Paper from '@material-ui/core/Paper/Paper';
-import Stack from '@mui/material/Stack/Stack';
 import Grid, { GridSpacing } from '@material-ui/core/Grid';
 import { Container as Container, createStyles, makeStyles, Theme } from '@material-ui/core';
 import clsx from 'clsx';

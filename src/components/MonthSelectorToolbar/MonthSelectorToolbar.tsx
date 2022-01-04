@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import Paper from '@material-ui/core/Paper/Paper';
-import Stack from '@mui/material/Stack/Stack';
-import { Button } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
+
 
 
 
@@ -17,20 +17,27 @@ const MonthSelectotToolbar: FC<MonthSelectorToolbarProps> = ({ title, subtitle }
   return (
     <>
       <Paper elevation={3}>
-        <Stack
+        <Grid
+          container
           direction="row"
-          justifyContent="space-between"
+          justifyContent="space-around"
           alignItems="center"
-          spacing={{ xs: 1, sm: 2, md: 4 }}
+          spacing={3}
         >
-          <Button>
-            <ArrowBackIosIcon />
-          </Button>
-          <h1>Dezembro 2021</h1>
-          <Button>
-            <ArrowForwardIosIcon />
-          </Button>
-        </Stack>
+          <Grid item justify="flex-start">
+            <Button>
+              <ArrowBackIosIcon />
+            </Button>
+          </Grid>
+          <Grid item justify="center">
+            <h1>Dezembro 2021</h1>
+          </Grid>
+          <Grid item justify="flex-end" >
+            <Button>
+              <ArrowForwardIosIcon />
+            </Button>
+          </Grid>
+        </Grid>
       </Paper>
     </>
   );
