@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Paper from '@material-ui/core/Paper/Paper';
-import Grid, { GridSpacing } from '@material-ui/core/Grid';
-import { Container as Container, createStyles, makeStyles, Theme } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import { Container, createStyles, makeStyles, responsiveFontSizes, Theme } from '@material-ui/core';
 import clsx from 'clsx';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -10,24 +10,35 @@ const useStyles = makeStyles((theme: Theme) =>
       borderLeft: "10px solid",
       justifyContent: "center",
       alignItems: "center",
-      paddingInline: "10px",
       borderLeftColor: theme.palette.error.main,
+      maxHeight: "20vh"
     },
     summarycardflagpositive: {
       borderLeft: "10px solid",
       justifyContent: "center",
       alignItems: "center",
-      paddingInline: "10px",
       borderLeftColor: theme.palette.success.main,
+      maxHeight: "20vh"
     },
     summarycardvaluepositive: {
-      color: theme.palette.success.main
+      color: theme.palette.success.main,
+      margin: "5px",
     },
     summarycardvaluenegative: {
-      color: theme.palette.error.main
+      color: theme.palette.error.main,
+      margin: "5px"
     },
     summarycardtext: {
-      color: theme.palette.primary.main
+      color: theme.palette.primary.main,
+      margin: "5px"
+    },
+    root: {
+      borderRadius: "15px",
+      padding: "0px",
+      border: "0px",
+      margin: "0px",
+      maxWidth: "100%",
+      justifyContent: "center"
     },
     
   })
@@ -40,18 +51,19 @@ interface SummaryCardProps {
   positive?: boolean;
 }
 
-const SummaryCards: FC<SummaryCardProps> = ({ title, value,positive }) => {
+const SummaryCard: FC<SummaryCardProps> = ({ title, value,positive }) => {
   
 const classes = useStyles();
   return (
     <>
-      <Container maxWidth="sm">
+      <Container maxWidth="sm" className={classes.root}>
         <Paper elevation={3} className={clsx( positive && classes.summarycardflagpositive, !positive && classes.summarycardflagnegative)}>
           <Grid
             container
             direction="column"
             justifyContent="center"
             alignItems="center"
+            spacing={0}
           >
             <h1 className={classes.summarycardtext}>{title}</h1>
             <h2 className={clsx( positive && classes.summarycardvaluepositive, !positive && classes.summarycardvaluenegative)}>{value}</h2>
@@ -62,4 +74,4 @@ const classes = useStyles();
   );
 };
 
-export default SummaryCards;
+export default SummaryCard;

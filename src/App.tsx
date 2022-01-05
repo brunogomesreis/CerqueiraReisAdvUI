@@ -14,7 +14,8 @@ import { lightTheme, darkTheme } from "./theme/AppTheme";
 //rotes
 import Layout from './pages/Layout';
 import MonthSelectotToolbar from './components/MonthSelectorToolbar/MonthSelectorToolbar';
-import SummaryCards from './components/SummaryCard/SummaryCard';
+import SummaryCard from './components/SummaryCard/SummaryCard';
+import CashFlow from './pages/CashFlow';
 
 
 
@@ -49,8 +50,8 @@ function App() {
                 />
               }
             >
-              <Route path="/teste" element={<MonthSelectotToolbar title={'sdas'} />} />
-              <Route path="teste2" element={<SummaryCards title={'Faturamento'} value='R$ 800,00' positive={true}/>} />
+              <Route path="/teste" element={<CashFlow />} />
+              <Route path="teste2" element={<SummaryCard title={'Faturamento'} value='R$ 800,00' positive={true}/>} />
             </Route>
             <Route path="*" element={DefaultComponent} />/
           </Routes>
