@@ -1,8 +1,10 @@
 import React, { FC } from 'react';
 import Paper from '@material-ui/core/Paper/Paper';
 import Grid from '@material-ui/core/Grid';
-import { Container, createStyles, makeStyles, responsiveFontSizes, Theme } from '@material-ui/core';
+import { Container, createStyles, makeStyles, Theme } from '@material-ui/core';
 import clsx from 'clsx';
+
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -47,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface SummaryCardProps {
   title: string;
-  value?: string;
+  value: number;
   positive?: boolean;
 }
 
@@ -66,7 +68,9 @@ const classes = useStyles();
             spacing={0}
           >
             <h1 className={classes.summarycardtext}>{title}</h1>
-            <h2 className={clsx( positive && classes.summarycardvaluepositive, !positive && classes.summarycardvaluenegative)}>{value}</h2>
+            <h2 className={clsx( positive && classes.summarycardvaluepositive, !positive && classes.summarycardvaluenegative)}>
+              {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value)}
+              </h2>
           </Grid>
         </Paper>
       </Container>

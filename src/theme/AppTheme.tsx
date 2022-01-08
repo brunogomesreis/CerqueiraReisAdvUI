@@ -1,11 +1,12 @@
 import { createTheme, Theme } from '@material-ui/core/styles';
+import { DARK_MODE_THEME, LIGHT_MODE_THEME } from '../utils/constants';
 
 
 // define light theme colors
 export const lightTheme: Theme = createTheme({
     typography:{fontFamily: "Roboto Slab"},
     palette: {
-        type: "light",
+        type: LIGHT_MODE_THEME,
         primary: {
             main: "#434c57",
         },
@@ -27,7 +28,7 @@ export const lightTheme: Theme = createTheme({
 export const darkTheme: Theme = createTheme({
     typography:{fontFamily: "Roboto Slab"},
     palette: {
-        type: "dark",
+        type: DARK_MODE_THEME,
         primary: {
             main: "#ffffff",
         },

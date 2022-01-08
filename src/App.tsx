@@ -13,7 +13,6 @@ import { lightTheme, darkTheme } from "./theme/AppTheme";
 
 //rotes
 import Layout from './pages/Layout';
-import MonthSelectotToolbar from './components/MonthSelectorToolbar/MonthSelectorToolbar';
 import SummaryCard from './components/SummaryCard/SummaryCard';
 import CashFlow from './pages/CashFlow';
 
@@ -51,7 +50,16 @@ function App() {
               }
             >
               <Route path="/teste" element={<CashFlow />} />
-              <Route path="teste2" element={<SummaryCard title={'Faturamento'} value='R$ 800,00' positive={true}/>} />
+              <Route
+                path="teste2"
+                element={
+                  <SummaryCard
+                    title={"Faturamento"}
+                    value={800.0}
+                    positive={true}
+                  />
+                }
+              />
             </Route>
             <Route path="*" element={DefaultComponent} />/
           </Routes>

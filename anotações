@@ -4,3 +4,5 @@ npm install @material-ui/core @material-ui/icons @types/material-ui
 npm install react-router-dom
 npm install react-helmet
 npm install @emotion/react @emotion/styled
+npm install @material-ui/data-grid
+npm install react-virtualized
