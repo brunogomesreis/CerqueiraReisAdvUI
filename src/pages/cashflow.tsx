@@ -3,7 +3,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import MonthSelectotToolbar from '../components/MonthSelectorToolbar/MonthSelectorToolbar'
 import SummaryCard from '../components/SummaryCard/SummaryCard'
-import CashFlowTable from '../components/CashFlowTable/CashFlowTable';
+import CashFlowTable2 from '../components/CashFlowTable/CashFlowTable2';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -29,14 +29,14 @@ const CashFlow: FC = () => {
         <Grid item xs={12}>
           <MonthSelectotToolbar title={"Jan 2022"} />
         </Grid>
-        <Grid item xs={12} sm={6} >
-          <SummaryCard title={"Faturamento"} value={20321.00} positive />
+        <Grid item xs={12} sm={6}>
+          <SummaryCard title={"Faturamento"} value={20321.0} positive />
         </Grid>
-        <Grid item xs={12} sm={6} >
-          <SummaryCard title={"Despesas"} value={-12230.32}/>
+        <Grid item xs={12} sm={6}>
+          <SummaryCard title={"Despesas"} value={-12230.32} />
         </Grid>
         <Grid item xs={12}>
-          <CashFlowTable/>
+          <CashFlowTable2/>
         </Grid>
       </Grid>
     </div>

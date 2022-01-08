@@ -7,12 +7,16 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Moneyicon from '@material-ui/icons/LocalAtm'
+import clsx from 'clsx';
+
+
+
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
-      backgroundColor: theme.palette.common.black,
-      color: theme.palette.common.white,
+      color: theme.palette.primary.main,
     },
     body: {
       fontSize: 14,
@@ -23,56 +27,85 @@ const StyledTableCell = withStyles((theme: Theme) =>
 const StyledTableRow = withStyles((theme: Theme) =>
   createStyles({
     root: {
-      '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
-      },
-    },
+    },    
   }),
 )(TableRow);
 
-function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
-  return { name, calories, fat, carbs, protein };
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    columnicon: {
+      width: "3px",
+    },
+    columniconpositive: {
+      color: theme.palette.success.main,
+    },
+    columniconnegative: {
+      color: theme.palette.error.main,
+    },
+
+  })
+);
+
+function createData(positive: boolean, value: number, time: string) {
+  const formatedvalue = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
+  return { positive, formatedvalue, time };
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData(true, 159, "6:10"),
+  createData(true, 237, "9:10"),
+  createData(false, -262, "16:10"),
+  createData(true, 305, "3:17"),
+  createData(false, -356, "16:10"),
 ];
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 700,
-  },
-});
 
-export default function CustomizedTables() {
+
+export default function CashFlowTable2() {
   const classes = useStyles();
+  
 
   return (
     <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
+      <Table aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-            <StyledTableCell align="right">Calories</StyledTableCell>
-            <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+            <StyledTableCell colSpan={3}>
+              <h2>14 DEZ - R$860,00</h2>
+            </StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
+            <StyledTableRow>
+              <StyledTableCell scope="row" className={classes.columnicon}>
+                <Moneyicon className={clsx( row.positive && classes.columniconpositive, !row.positive && classes.columniconnegative)}/>
               </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
+              <StyledTableCell align="left">
+                {row.formatedvalue}
+              </StyledTableCell>
+              <StyledTableCell align="right">{row.time}</StyledTableCell>
+            </StyledTableRow>
+          ))}
+        </TableBody>
+        <TableHead>
+          <TableRow>
+            <StyledTableCell colSpan={3}>
+              <h2>14 DEZ - R$860,00</h2>
+            </StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <StyledTableRow>
+              <StyledTableCell scope="row">
+                <Moneyicon  className={clsx( row.positive && classes.columniconpositive, !row.positive && classes.columniconnegative)}/>
+              </StyledTableCell>
+              <StyledTableCell align="left">
+                {row.formatedvalue}
+              </StyledTableCell>
+              <StyledTableCell align="right">{row.time}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
