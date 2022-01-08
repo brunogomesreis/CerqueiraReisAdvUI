@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Paper from '@material-ui/core/Paper/Paper';
 import Grid from '@material-ui/core/Grid';
-import { Container, createStyles, makeStyles, responsiveFontSizes, Theme } from '@material-ui/core';
+import { Container, createStyles, makeStyles, Theme } from '@material-ui/core';
 import clsx from 'clsx';
 
 const useStyles = makeStyles((theme: Theme) =>

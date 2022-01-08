@@ -7,6 +7,7 @@ import { CssBaseline } from "@material-ui/core";
 import Header from "../components/Header/header";
 // import {Navigation} from "./Navigation";
 // import {Footer} from "./Footer";
+import Footer from "../components/Footer/Footer";
 
 // constants
 import { DRAWER_WIDTH, FOOTER_HEIGHT } from "../utils/constants";
@@ -65,7 +66,7 @@ const Layout: FC<LayoutProps> = ({ toggleTheme, useDefaultTheme }) => {
       {/* <Navigation open={open} handleClose={toggle} /> */}
 
       <footer>
-        <p>footer</p>
+        <Footer/>
       </footer>
     </div>
   );
