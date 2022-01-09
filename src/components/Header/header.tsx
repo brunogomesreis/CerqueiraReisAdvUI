@@ -16,6 +16,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
+import AccountBalance from '@material-ui/icons/AccountBalance';
 import MailIcon from '@material-ui/icons/Mail';
 import { Switch } from '@material-ui/core';
 import {DRAWER_WIDTH} from '../../utils/constants'
@@ -153,20 +154,18 @@ interface headerProps {
         <List>
           {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
+            <AccountBalance />
+            <ListItemText primary={text} />
+          </ListItem>
           ))}
         </List>
         <Divider />
         <List>
           {["All mail", "Trash", "Spam"].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>
+              <AccountBalance>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
+              </AccountBalance>
               <ListItemText primary={text} />
             </ListItem>
           ))}

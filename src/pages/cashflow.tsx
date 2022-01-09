@@ -4,7 +4,8 @@ import Grid from '@material-ui/core/Grid';
 import MonthSelectotToolbar from '../components/MonthSelectorToolbar/MonthSelectorToolbar'
 import SummaryCard from '../components/SummaryCard/SummaryCard'
 import CashFlowTable2 from '../components/CashFlowTable/CashFlowTable2';
-
+import Fab from '@material-ui/core/Fab';
+import Add from '@material-ui/icons/Add'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,6 +19,14 @@ const useStyles = makeStyles((theme: Theme) =>
       textAlign: 'center',
       color: theme.palette.text.secondary,
     },
+    floatingbutton: {
+      color: theme.palette.secondary.main,
+      backgroundColor: theme.palette.primary.main,
+      position: "fixed",
+      bottom: '2vh',
+      right: '2vh',
+
+    }
   }),
 );
 
@@ -36,9 +45,12 @@ const CashFlow: FC = () => {
           <SummaryCard title={"Despesas"} value={-12230.32} />
         </Grid>
         <Grid item xs={12}>
-          <CashFlowTable2/>
+          <CashFlowTable2 />
         </Grid>
       </Grid>
+      <Fab className={classes.floatingbutton} >
+        <Add />
+      </Fab>
     </div>
   );
 };

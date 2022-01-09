@@ -19,7 +19,8 @@ const StyledTableCell = withStyles((theme: Theme) =>
       color: theme.palette.primary.main,
     },
     body: {
-      fontSize: 14,
+      fontSize: 16,
+      alignContent: 'center'
     },
   }),
 )(TableCell);
@@ -36,6 +37,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     columnicon: {
       width: "3px",
+      alignContent: 'center'
     },
     columniconpositive: {
       color: theme.palette.success.main,
